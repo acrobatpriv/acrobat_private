@@ -15,7 +15,6 @@ def pull_git():
 
 
 if __name__ == '__main__':
-
     me_file = os.path.abspath(sys.argv[0])
 
     commit = shell("git rev-parse HEAD")
@@ -26,7 +25,7 @@ if __name__ == '__main__':
     while True:
         if pull_git():
             print(f"acrobat restart after update from remote")
-            os.execv("/usr/bin/python3", __argv=sys.argv)
+            os.execl("/usr/bin/python3", "/usr/bin/python3", sys.argv[0])
             exit(0)
 
         wifi.setup_wifi()
