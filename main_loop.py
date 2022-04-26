@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import sys
+import sys, os
 from time import sleep
 
 import autostart
@@ -16,19 +16,19 @@ def pull_git():
 
 if __name__ == '__main__':
 
-    me_file = sys.argv[0]
+    me_file = os.path.abspath(sys.argv[0])
 
     commit = shell("git rev-parse HEAD")
     print(f"acrobat started on commit {commit}")
+
     autostart.setup_autostart()
 
     while True:
         if pull_git():
             print(f"acrobat restart after update from remote")
-            exec(f"python3 {me_file}")
+            os.execv("/usr/bin/python3", __argv=sys.argv)
             exit(0)
 
         wifi.setup_wifi()
-
 
         sleep(10)
