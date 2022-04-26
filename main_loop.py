@@ -30,4 +30,4 @@ if __name__ == '__main__':
 
         wifi.setup_wifi()
 
-        sleep(10)
+        sleep(60*60*24)
