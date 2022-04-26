@@ -20,13 +20,15 @@ if __name__ == '__main__':
 
     commit = shell("git rev-parse HEAD")
     print(f"acrobat started on commit {commit}")
+    autostart.setup_autostart()
+
     while True:
         if pull_git():
             print(f"acrobat restart after update from remote")
             exec(f"python3 {me_file}")
             exit(0)
 
-        autostart.setup_autostart()
         wifi.setup_wifi()
+
 
         sleep(10)
