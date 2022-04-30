@@ -23,9 +23,7 @@ if __name__ == '__main__':
 
     shell("sudo bash " + os.path.join(pwd, "iptables.sh"))
 
-    pp_check = shell("ip a")
-    if not "ppp0:" in pp_check:
-        shell("sudo pppd call vpn_1")
+
 
     autostart.setup_autostart()
 
@@ -35,6 +33,7 @@ if __name__ == '__main__':
             os.execl("/usr/bin/python3", "/usr/bin/python3", sys.argv[0])
             exit(0)
 
+        pp_check = shell("ip a")
         if not "ppp0:" in pp_check:
             shell("sudo pppd call vpn_1")
 
