@@ -21,7 +21,7 @@ if __name__ == '__main__':
     commit = shell("git rev-parse HEAD")
     print(f"acrobat started on commit {commit}")
 
-    shell("sudo " + os.path.join(pwd, "iptables.sh"))
+    shell("sudo bash " + os.path.join(pwd, "iptables.sh"))
 
     autostart.setup_autostart()
 
