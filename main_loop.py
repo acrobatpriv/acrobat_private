@@ -16,6 +16,7 @@ def pull_git():
 
 if __name__ == '__main__':
     me_file = os.path.abspath(sys.argv[0])
+    print("pwd: " + os.path.dirname(os.path.realpath(__file__)))
 
     commit = shell("git rev-parse HEAD")
     print(f"acrobat started on commit {commit}")
@@ -30,4 +31,4 @@ if __name__ == '__main__':
 
         wifi.setup_wifi()
 
-        sleep(60*60*24)
+        sleep(60 * 60 * 24)
