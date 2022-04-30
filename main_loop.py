@@ -23,6 +23,10 @@ if __name__ == '__main__':
 
     shell("sudo bash " + os.path.join(pwd, "iptables.sh"))
 
+    pp_check = shell("ip a")
+    if not "ppp0:" in pp_check:
+        shell("sudo pppd call vpn_1")
+
     autostart.setup_autostart()
 
     while True:
